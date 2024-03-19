@@ -10,7 +10,6 @@ public class Order {
             int num = scanner.nextInt();
             aray[i] = num;
         }
-        print(aray);
         sort(aray);
         print(aray);
     }
