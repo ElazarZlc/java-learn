@@ -6,17 +6,21 @@ class ChatterBot {
     Random random = new Random();
 
     ChatterBot(String[] repleisToIllegalRequest){
-        this.repleisToIllegalRequest = repleisToIllegalRequest;
+        this.repleisToIllegalRequest = new String[repleisToIllegalRequest.length];
+        for(int i=0;i<repleisToIllegalRequest.length;i++){
+            this.repleisToIllegalRequest[i] = repleisToIllegalRequest[i];
+        }
     }
 
     String replyTo(String statement){
         if(statement.startsWith(REQUEST_PREFIX)){
-            return statement.replace(REQUEST_PREFIX, "");
+            return statement.replaceFirst(REQUEST_PREFIX, "");
         }
         return replyToIllegalRequest(statement);
     }
     String replyToIllegalRequest(String statement){
-        String reply = repleisToIllegalRequest[random.nextInt(repleisToIllegalRequest.length)];
+        int randomIndex = random.nextInt(repleisToIllegalRequest.length);
+        String reply = repleisToIllegalRequest[randomIndex];
         if(random.nextBoolean()){
             reply = reply + statement;
         }
