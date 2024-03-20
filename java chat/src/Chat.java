@@ -11,10 +11,11 @@ class Chat {
         repleisToIllegalRequest[1] = "say say ";
         bots[1] = new ChatterBot(repleisToIllegalRequest);
         int indexOfCarBot = 0;
-        while (true) {
+        while (!statement.equals("finish")) {
             statement = bots[indexOfCarBot].replyTo(statement);
             System.out.print(statement);
             scanner.nextLine();
+            indexOfCarBot = 1 - indexOfCarBot;
         }
     }
 }
