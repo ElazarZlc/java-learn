@@ -13,7 +13,7 @@ class Chat {
         int indexOfCarBot = 0;
         while (!statement.equals("finish")) {
             statement = bots[indexOfCarBot].replyTo(statement);
-            System.out.print(statement);
+            System.out.print("bot " + indexOfCarBot + " say: " + statement);
             scanner.nextLine();
             indexOfCarBot = 1 - indexOfCarBot;
         }
