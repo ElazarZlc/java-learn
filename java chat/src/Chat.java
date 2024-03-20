@@ -6,11 +6,15 @@ class Chat {
         Scanner scanner = new Scanner(System.in);
         String statement = scanner.nextLine();
         String[] repleisToIllegalRequest = {"what ", "say i should say ", "WTF "};
-        ChatterBot bot1 = new ChatterBot(repleisToIllegalRequest);
-        while (!statement.equals("finish")) {
-            String reply = bot1.replyTo(statement);
-            System.out.println(reply);
-            statement =scanner.nextLine();
+        ChatterBot[] bots = new ChatterBot[2];
+        bots[0] = new ChatterBot(repleisToIllegalRequest);
+        repleisToIllegalRequest[1] = "say say ";
+        bots[1] = new ChatterBot(repleisToIllegalRequest);
+        int indexOfCarBot = 0;
+        while (true) {
+            statement = bots[indexOfCarBot].replyTo(statement);
+            System.out.print(statement);
+            scanner.nextLine();
         }
     }
 }
