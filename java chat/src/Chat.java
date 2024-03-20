@@ -5,15 +5,13 @@ class Chat {
         System.out.println("hi! what do you want to talk about?");
         Scanner scanner = new Scanner(System.in);
         String statement = scanner.nextLine();
-        ChatterBot bot = new ChatterBot();
-        
-        while (true) {
-            String reply = bot.replyTo(statement);
+        String[] repleisToIllegalRequest = {"what ", "say i should say ", "WTF "};
+        ChatterBot bot1 = new ChatterBot(repleisToIllegalRequest);
+        while (!statement.equals("finish")) {
+            String reply = bot1.replyTo(statement);
             System.out.println(reply);
-            statement = scanner.nextLine();
-            
+            statement =scanner.nextLine();
         }
-        
     }
 }
 
