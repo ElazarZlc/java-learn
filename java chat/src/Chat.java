@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 class Chat {
     public static void main(String[] args) {
-        System.out.println("hi! what do you want to talk about?");
+        System.out.println("Hi! please insert an initial sentence to start the conversation between the bots!");
         Scanner scanner = new Scanner(System.in);
         String statement = scanner.nextLine();
         String[] repleisToLegalRequest = {
