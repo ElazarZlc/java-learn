@@ -23,8 +23,14 @@ class ChatterBot {
             statement = statement.replaceFirst(REQUEST_PREFIX, "");
         }
         int randomIndex = random.nextInt(repleisToRequest.length);
+
+        if(random.nextBoolean()){
         return repleisToRequest[randomIndex].replaceAll(REQUEST_PHRASE_PLACEOLDER, statement);
-         
+        }
+        else{
+            return repleisToRequest[randomIndex].replaceAll(REQUEST_PHRASE_PLACEOLDER, "");
+            
+        }
        
 }
 
