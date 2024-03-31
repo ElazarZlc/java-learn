@@ -4,7 +4,7 @@ class ChatterBot {
 
     static final String REQUEST_PREFIX = "Say ";
     static final String REQUEST_PHRASE_PLACEOLDER = "<phrase>";
-    static final String ILLEGAL_REQUEST_PLACEHOLDER = "<reqoest>";
+
     String[] repleisToIllegalRequest;
     String[] repleisToLegalRequest;
     Random random = new Random();
