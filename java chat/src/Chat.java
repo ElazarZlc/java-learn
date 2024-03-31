@@ -10,9 +10,9 @@ class Chat {
                         + ChatterBot.REQUEST_PHRASE_PLACEOLDER,
                 "OK here goes: " + ChatterBot.REQUEST_PHRASE_PLACEOLDER };
         String[] repleisToIllegalRequest = {
-                "Say what? " + ChatterBot.ILLEGAL_REQUEST_PLACEHOLDER + " what's "
-                        + ChatterBot.ILLEGAL_REQUEST_PLACEHOLDER,
-                "i don't want to say: " + ChatterBot.ILLEGAL_REQUEST_PLACEHOLDER};
+                "Say what? " + ChatterBot.REQUEST_PHRASE_PLACEOLDER + " what's "
+                        + ChatterBot.REQUEST_PHRASE_PLACEOLDER,
+                "i don't want to say: " + ChatterBot.REQUEST_PHRASE_PLACEOLDER};
 
         ChatterBot[] bots = new ChatterBot[2];
         bots[0] = new ChatterBot("Moshe", repleisToLegalRequest, repleisToIllegalRequest);
