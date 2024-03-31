@@ -4,45 +4,31 @@ class ChatterBot {
 
     static final String REQUEST_PREFIX = "Say ";
     static final String REQUEST_PHRASE_PLACEOLDER = "<phrase>";
-    static final String ILLEGAL_REQUEST_PLACEHOLDER = "<reqoest>";
-    String[] repleisToIllegalRequest;
-    String[] repleisToLegalRequest;
+    String[] repleisToRequest;
     Random random = new Random();
     String name;
 
 
-    ChatterBot(String name, String[] repleisToLegalRequest, String[] repleisToIllegalRequest){
+    ChatterBot(String name, String[] repleisToRequest){
         this.name = name;
-        this.repleisToLegalRequest = new String[repleisToLegalRequest.length];
+        this.repleisToRequest = new String[repleisToRequest.length];
        
-        for(int i=0;i<repleisToLegalRequest.length;i++){
-            this.repleisToLegalRequest[i] = repleisToLegalRequest[i];
-        }
-        this.repleisToIllegalRequest = new String[repleisToIllegalRequest.length];
-       
-        for(int i=0;i<repleisToIllegalRequest.length;i++){
-            this.repleisToIllegalRequest[i] = repleisToIllegalRequest[i];
+        for(int i=0;i<repleisToRequest.length;i++){
+            this.repleisToRequest[i] = repleisToRequest[i];
         }
     }
 
     String replyTo(String statement){
         if(statement.startsWith(REQUEST_PREFIX)){
-            return replyToLegalRequest(statement);
+            statement = statement.replaceFirst(REQUEST_PREFIX, "");
         }
-        return replyToIllegalRequest(statement);
-    }
+        int randomIndex = random.nextInt(repleisToRequest.length);
+        return repleisToRequest[randomIndex].replaceAll(REQUEST_PHRASE_PLACEOLDER, statement);
+         
+       
+}
 
-    String replyToLegalRequest(String statement){
-        String phrase = statement.replaceFirst(REQUEST_PREFIX, "");
-        int randomIndex = random.nextInt(repleisToLegalRequest.length);
-        return repleisToLegalRequest[randomIndex].replaceAll(REQUEST_PHRASE_PLACEOLDER, phrase);
-
-    }
-
-    String replyToIllegalRequest(String statement){
-        int randomIndex = random.nextInt(repleisToIllegalRequest.length);
-        return repleisToIllegalRequest[randomIndex].replaceAll(ILLEGAL_REQUEST_PLACEHOLDER, statement);
-    }
+   
     String getName() {
         return this.name;
     }
