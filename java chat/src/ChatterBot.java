@@ -27,21 +27,17 @@ class ChatterBot {
 
     String replyTo(String statement){
         if(statement.startsWith(REQUEST_PREFIX)){
-            return replyToLegalRequest(statement);
+            statement = statement.replaceFirst(REQUEST_PREFIX, "");
+            return replyToAllRequest(statement, repleisToLegalRequest);
         }
-        return replyToIllegalRequest(statement);
+        return replyToAllRequest(statement, repleisToIllegalRequest);
     }
 
-    String replyToLegalRequest(String statement){
-        String phrase = statement.replaceFirst(REQUEST_PREFIX, "");
-        int randomIndex = random.nextInt(repleisToLegalRequest.length);
-        return repleisToLegalRequest[randomIndex].replaceAll(REQUEST_PHRASE_PLACEOLDER, phrase);
+  
 
-    }
-
-    String replyToIllegalRequest(String statement){
-        int randomIndex = random.nextInt(repleisToIllegalRequest.length);
-        return repleisToIllegalRequest[randomIndex].replaceAll(ILLEGAL_REQUEST_PLACEHOLDER, statement);
+    String replyToAllRequest(String statement, String[] repleis){
+        int randomIndex = random.nextInt(repleis.length);
+        return repleis[randomIndex].replaceAll(REQUEST_PHRASE_PLACEOLDER, statement);
     }
     String getName() {
         return this.name;
